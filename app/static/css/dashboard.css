@@ -1,0 +1,33 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e2f;
+    color: #fff;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.bg-gradient-info {
+    background: linear-gradient(87deg, #11cdef 0, #1171ef 100%);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(87deg, #fb6340 0, #fbb140 100%);
+}
+
+.bg-gradient-danger {
+    background: linear-gradient(87deg, #f5365c 0, #f56036 100%);
+}
+
+.bg-gradient-secondary {
+    background: linear-gradient(87deg, #6c757d 0, #adb5bd 100%);
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+

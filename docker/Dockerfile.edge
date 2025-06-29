@@ -1,0 +1,32 @@
+# Dockerfile.edge
+
+# Use a lightweight Python base for edge devices (e.g., Raspberry Pi)
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set working directory
+WORKDIR /edge
+
+# Install required system packages
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libffi-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy and install only essential packages for edge logic
+COPY requirements-edge.txt .
+
+RUN pip install --no-cache-dir -r requirements-edge.txt
+
+# Copy only the necessary modules for edge operation
+COPY ./app/data ./data
+COPY ./app/agents/anomaly_agent.py ./agents/anomaly_agent.py
+COPY ./app/utils/logger.py ./utils/logger.py
+
+# Add optional local runner
+COPY edge_runner.py .
+
+CMD ["python", "edge_runner.py"]

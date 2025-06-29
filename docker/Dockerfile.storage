@@ -1,0 +1,22 @@
+# Dockerfile.storage
+
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /data
+
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libffi-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements-storage.txt .
+
+RUN pip install --no-cache-dir -r requirements-storage.txt
+
+COPY ./app/data ./data
+
+CMD ["python", "mqtt_feeder.py"]

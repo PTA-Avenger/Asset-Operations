@@ -1,0 +1,42 @@
+# Sensitive files
+.env
+*.json
+!app/static/*.json
+firebase_admin.json
+*.key
+*.pem
+
+# Database and local storage
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+ENV/
+env/
+.venv/
+
+# Jupyter and notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large files
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+# Ignore user data
+app/data/

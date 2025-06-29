@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pandas
+numpy
+python-dotenv
+httpx         # For API calls to Granite / watsonx
+matplotlib    # For data visualization (optional)
